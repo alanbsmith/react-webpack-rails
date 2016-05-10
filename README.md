@@ -69,7 +69,13 @@ _* you can skip immediate installation_
 
 _* you can skip immediate installation_
 
+**APPENDING WEBPACK WATCH TASK**
+* `"watch": "webpack --watch --colors --progress"`
+
 **APPENDING ASSETS INTO THE PIPELINE**
+* `javascript_include_tag` to `app/views/layouts/application.html.erb`
+* `Rails.application.config.assets.precompile += %w( bundle.js )` to `config/initializers/assets.rb`
+
 
 ## DEVELOPMENT
 The generator installs Foreman and adds a Procfile to fire up Webpack and the Rails server in a single command:
@@ -94,11 +100,10 @@ You can call components in the view with an `erb` tag for your components and pr
 ## PRODUCTION
 A rake task for precompiling the webpack assets is added by the generator. This essentially adds the Webpack/Babel transpiling to the precompilation task that runs when you deploy to production. So you should never need to have two separate build tasks.
 
-## Contributing
+## CONTRIBUTING
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/react-webpack-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alanbsmith/react-webpack-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-
-## License
+## LICENSE
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

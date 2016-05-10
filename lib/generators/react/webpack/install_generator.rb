@@ -26,7 +26,7 @@ module React
         def install_foreman
           puts "Adding foreman gem"
           gem "foreman"
-          if yes?("Run bundle install?")
+          if yes?("Run bundle install? ( y | n )")
             system("bundle install")
           else
             puts "Cool. Just remember to run 'bundle install' later."
@@ -58,7 +58,7 @@ module React
         def initialize_npm_and_node_modules
           puts "Initalizing package.json"
           system("npm init -y")
-          if yes?("Install node modules?")
+          if yes?("Install node modules? ( y | n )")
             puts "Installing..."
             system("npm install --save babel-core babel-loader babel-preset-es2015 babel-preset-react classnames react react-dom webpack")
             append_npm_run_tasks
