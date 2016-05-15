@@ -9,7 +9,7 @@ module React
         desc "Installs necessary framework for react-webpack integration"
 
         def create_base_directories
-          empty_directory("clients/components")
+          empty_directory("client/components")
           empty_directory("app/assets/webpack")
         end
 
@@ -64,7 +64,7 @@ module React
             append_npm_run_tasks
           else
             puts "Cool. We'll add a standard `package.json` with the appropriate dependencies for you now. Just remember to run 'npm install' later."
-            inject_into_file "package.json", node_dependencies, { after: '#readme"' }
+            inject_into_file "package.json", node_dependencies, { after: '"dependencies": {' }
             append_npm_run_tasks
           end
         end
@@ -75,22 +75,11 @@ module React
         end
 
         def webpack_watch_task
-          ',
-    "watch": "webpack --watch --colors --progress"'
+          %Q(,\n    "watch": "webpack --watch --colors --progress")
         end
 
         def node_dependencies
-          ',
-  "dependencies": {
-    "babel-core": "^6.7.7",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-react": "^6.5.0",
-    "classnames": "^2.2.5",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
-    "webpack": "^1.13.0"
-  }'
+          %Q(\n    "babel-core": "^6.7.7",\n    "babel-loader": "^6.2.4",\n    "babel-preset-es2015": "^6.6.0",\n    "babel-preset-react": "^6.5.0",\n    "classnames": "^2.2.5",\n    "react": "^15.0.1",\n    "react-dom": "^15.0.1",\n    "webpack": "^1.13.0"\n  )
         end
       end
     end
