@@ -3,6 +3,6 @@ namespace :assets do
 end
 
 task :webpack do
-  sh "npm install"
-  sh "./node_modules/.bin/webpack"
+  %x(npm install)
+  %x(./node_modules/.bin/webpack)
 end
